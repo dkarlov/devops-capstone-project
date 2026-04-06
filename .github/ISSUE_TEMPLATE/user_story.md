@@ -1,3 +1,12 @@
+---
+name: user_story
+about: user story issue template
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 **As a** [role]  
 **I need** [function]  
 **So that** [benefit]  
