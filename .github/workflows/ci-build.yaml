@@ -15,7 +15,7 @@ jobs:
     services:
       postgres:
         image: postgres-alpine
-        port: 
+        ports: 
           - 5432:5432
         env:
           POSTGRES_PASSWORD: pgs3cr3t
