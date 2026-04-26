@@ -144,7 +144,6 @@ class TestAccountService(TestCase):
             f"{BASE_URL}/{non_existing_account_number}", content_type="application/json"
         )
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-        data = resp.get_json()
 
     def test_update_account(self):
         """It should Update an existing Account"""
@@ -164,7 +163,7 @@ class TestAccountService(TestCase):
             f"{BASE_URL}/{new_account['id']}",
             json=new_account,
             content_type="application/json"
-        )   
+        )
         self.assertEqual(new_response.status_code, status.HTTP_200_OK)
         updated_account = new_response.get_json()
         self.assertEqual(updated_account["name"], "TestName")
@@ -176,7 +175,7 @@ class TestAccountService(TestCase):
             f"{BASE_URL}/{account.id}"
             )
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-    
+
     def test_get_account_list(self):
         """It should Get a list of Accounts"""
         self._create_accounts(5)
@@ -185,7 +184,7 @@ class TestAccountService(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
         self.assertEqual(len(data), 5)
-        
+
     def test_security_headers(self):
         """It should return security headers"""
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
