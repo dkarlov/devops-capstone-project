@@ -63,5 +63,5 @@ spec:
         - name: args 
           value: "-v --with-spec --spec-color"
       runAfter:
-        - lclone
+        - clone
       
